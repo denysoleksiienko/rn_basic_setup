@@ -13,18 +13,6 @@ const Drawer = createDrawerNavigator();
 const DrawerMenu: FC = () => {
   const theme = useTheme();
 
-  // Check is user not autorize
-  // useEffect(() => {
-  //   if (!auth) {
-  //     navigation.dispatch(
-  //       CommonActions.reset({
-  //         index: 0,
-  //         routes: [{ name: PATHS.PUBLIC }],
-  //       }),
-  //     );
-  //   }
-  // }, [auth]);
-
   return (
     <Drawer.Navigator
       drawerContent={(props) => <DrawerContent {...props} />}

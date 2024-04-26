@@ -3,6 +3,7 @@ import React from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { StatusBar, useColorScheme } from 'react-native';
 
+import { AuthProvider } from '@/context/AuthProvider';
 import MainRouter from '@/navigation/MainRouter';
 import theme from '@/theme';
 
@@ -13,7 +14,9 @@ function App(): React.JSX.Element {
     <ThemeProvider theme={theme}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
 
-      <MainRouter />
+      <AuthProvider>
+        <MainRouter />
+      </AuthProvider>
     </ThemeProvider>
   );
 }
