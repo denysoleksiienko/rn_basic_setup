@@ -1,35 +1,24 @@
+import { FC } from 'react';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { PATHS } from '@/constants/paths';
-import AboutScreen from '@/screens/AboutScreen';
-import AppScreen from '@/screens/AppScreen/AppScreen';
 
-import { useDefaultBackButtonOptions } from '../options';
+import DrawerMenu from '../DrawerMenu';
 
-const RootStack = createStackNavigator();
+const Stack = createStackNavigator();
 
-const MainRouter = () => {
-  const defaultOptions = useDefaultBackButtonOptions();
-
-  return (
-    <NavigationContainer>
-      <RootStack.Navigator
-        initialRouteName={PATHS.APP_ROOT}
-        screenOptions={{ gestureEnabled: true }}>
-        <RootStack.Screen
-          component={AppScreen}
-          name={PATHS.APP_ROOT}
-          options={{ headerShown: false, title: 'AppScreen' }}
-        />
-        <RootStack.Screen
-          component={AboutScreen}
-          name={PATHS.ABOUT_SCREEN}
-          options={{ ...defaultOptions, title: 'AboutScreen' }}
-        />
-      </RootStack.Navigator>
-    </NavigationContainer>
-  );
-};
+const MainRouter: FC = () => (
+  <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen
+        component={DrawerMenu}
+        name={PATHS.APP_DRAWER}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  </NavigationContainer>
+);
 
 export default MainRouter;

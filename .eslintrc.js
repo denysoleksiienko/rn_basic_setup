@@ -33,6 +33,7 @@ module.exports = {
     es6: true,
   },
   rules: {
+    'arrow-parens': ['error', 'always'],
     'no-use-before-define': 0,
     'import/prefer-default-export': 0,
     'global-require': 0,

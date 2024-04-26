@@ -15,6 +15,6 @@ export default {
         `${scale[next as keyof typeof scale]}px`;
       return prev;
     },
-    {} as Record<keyof typeof scale, string>,
+    {} as Record<keyof typeof scale, string>
   ),
 };

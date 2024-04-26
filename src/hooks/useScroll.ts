@@ -11,7 +11,7 @@ export const useScroll = () => {
     [{ nativeEvent: { contentOffset: { y: scroll } } }],
     {
       useNativeDriver: false,
-    },
+    }
   );
 
   useEffect(() => {

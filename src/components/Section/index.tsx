@@ -22,7 +22,8 @@ const Section: FC<SectionProps> = ({ children, title }): React.JSX.Element => {
           {
             color: isDarkMode ? Colors.white : Colors.black,
           },
-        ]}>
+        ]}
+      >
         {title}
       </Text>
       <Text
@@ -31,7 +32,8 @@ const Section: FC<SectionProps> = ({ children, title }): React.JSX.Element => {
           {
             color: isDarkMode ? Colors.light : Colors.dark,
           },
-        ]}>
+        ]}
+      >
         {children}
       </Text>
     </styled.SectionContainer>
