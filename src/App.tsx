@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { ThemeProvider } from '@emotion/react';
-import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
+import { StatusBar, useColorScheme } from 'react-native';
 
-import AppScreen from '@/screens/AppScreen';
+import MainRouter from '@/navigation/MainRouter';
 import theme from '@/theme';
 
 function App(): React.JSX.Element {
@@ -11,10 +11,9 @@ function App(): React.JSX.Element {
 
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaView>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <AppScreen />
-      </SafeAreaView>
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+
+      <MainRouter />
     </ThemeProvider>
   );
 }
