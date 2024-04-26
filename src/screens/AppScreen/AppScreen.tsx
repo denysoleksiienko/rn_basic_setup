@@ -10,15 +10,26 @@ import {
 
 import Section from '@/components/Section';
 import { ChevronDownIcon } from '@/components/icons';
+import Typo from '@/components/ui/Typo';
 import theme from '@/theme';
 
 const AppScreen: FC<{ style?: ViewStyle }> = ({ style }) => (
   <ScrollView contentInsetAdjustmentBehavior='automatic' style={style}>
     <Header />
+
     <View style={{ alignItems: 'center' }}>
       <ChevronDownIcon />
     </View>
     <View>
+      <Typo
+        color={theme.colors.green}
+        fontSize={20}
+        fontWeight='bold'
+        textAlign='center'
+        uppercase
+      >
+        Setup RN 24
+      </Typo>
       <Section title='Step One'>
         Edit <Text style={styles.highlight}>App.tsx</Text> to change this screen
         and then come back to see your edits.
