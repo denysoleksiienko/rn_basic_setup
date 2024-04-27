@@ -6,17 +6,20 @@ import { TextProps, TextStyle } from 'react-native';
 
 import theme from '@/theme';
 
-type FontWeight = 'regular' | 'light' | 'medium' | 'bold';
+// type FontWeight = 'regular' | 'light' | 'medium' | 'bold';
 
 type TextAlign = 'auto' | 'left' | 'right' | 'center' | 'justify';
 
-type FontStyle = 'normal' | 'italic';
+type FontStyle =
+  | 'Poppins-Bold'
+  | 'Poppins-Medium'
+  | 'Poppins-Regular'
+  | 'Poppins-SemiBold';
 
 interface ITypo extends TextProps {
   color?: string;
   fontSize?: number | string;
   fontStyle?: FontStyle;
-  fontWeight?: FontWeight;
   letterSpacing?: number;
   textAlign?: TextAlign;
   uppercase?: boolean;
@@ -27,11 +30,10 @@ const Typo: FC<PropsWithChildren<ITypo>> = ({
   children,
   color = '#000',
   fontSize = 15,
-  fontWeight = 'regular',
   letterSpacing = 0,
   textAlign = 'left',
   uppercase = false,
-  fontStyle = 'normal',
+  fontStyle = 'Poppins-Regular',
   ...props
 }) => (
   <StyledText
@@ -39,7 +41,6 @@ const Typo: FC<PropsWithChildren<ITypo>> = ({
     color={color}
     fontSize={fontSize}
     fontStyle={fontStyle}
-    fontWeight={fontWeight}
     letterSpacing={letterSpacing}
     textAlign={textAlign}
     uppercase={uppercase}
@@ -51,26 +52,26 @@ const Typo: FC<PropsWithChildren<ITypo>> = ({
 export default Typo;
 
 const StyledText = styled.Text<ITypo>`
-  ${({ fontWeight }) =>
-    fontWeight === 'regular' &&
+  ${({ fontStyle }) =>
+    fontStyle === 'Poppins-Regular' &&
     `
       font-family: ${theme.fonts.base}
     `};
 
-  ${({ fontWeight }) =>
-    fontWeight === 'light' &&
+  ${({ fontStyle }) =>
+    fontStyle === 'Poppins-SemiBold' &&
     `
       font-family: ${theme.fonts.semiBold}
     `};
 
-  ${({ fontWeight }) =>
-    fontWeight === 'medium' &&
+  ${({ fontStyle }) =>
+    fontStyle === 'Poppins-Medium' &&
     `
       font-family: ${theme.fonts.medium}
     `};
 
-  ${({ fontWeight }) =>
-    fontWeight === 'bold' &&
+  ${({ fontStyle }) =>
+    fontStyle === 'Poppins-Bold' &&
     `
       font-family: ${theme.fonts.bold}
     `};
