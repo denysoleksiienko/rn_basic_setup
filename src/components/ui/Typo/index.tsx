@@ -6,11 +6,9 @@ import { TextProps, TextStyle } from 'react-native';
 
 import theme from '@/theme';
 
-// type FontWeight = 'regular' | 'light' | 'medium' | 'bold';
-
 type TextAlign = 'auto' | 'left' | 'right' | 'center' | 'justify';
 
-type FontStyle =
+type FontFace =
   | 'Poppins-Bold'
   | 'Poppins-Medium'
   | 'Poppins-Regular'
@@ -19,7 +17,7 @@ type FontStyle =
 interface ITypo extends TextProps {
   color?: string;
   fontSize?: number | string;
-  fontStyle?: FontStyle;
+  fontFace?: FontFace;
   letterSpacing?: number;
   textAlign?: TextAlign;
   uppercase?: boolean;
@@ -33,17 +31,17 @@ const Typo: FC<PropsWithChildren<ITypo>> = ({
   letterSpacing = 0,
   textAlign = 'left',
   uppercase = false,
-  fontStyle = 'Poppins-Regular',
+  fontFace = 'Poppins-Regular',
   ...props
 }) => (
   <StyledText
-    {...props}
     color={color}
+    fontFace={fontFace}
     fontSize={fontSize}
-    fontStyle={fontStyle}
     letterSpacing={letterSpacing}
     textAlign={textAlign}
     uppercase={uppercase}
+    {...props}
   >
     {children}
   </StyledText>
@@ -52,34 +50,29 @@ const Typo: FC<PropsWithChildren<ITypo>> = ({
 export default Typo;
 
 const StyledText = styled.Text<ITypo>`
-  ${({ fontStyle }) =>
-    fontStyle === 'Poppins-Regular' &&
+  font-size: ${({ fontSize }) => String(fontSize)}px;
+  color: ${({ color }) => color};
+  text-align: ${({ textAlign }) => textAlign};
+  ${({ fontFace }) =>
+    fontFace === 'Poppins-Regular' &&
     `
       font-family: ${theme.fonts.base}
     `};
-
-  ${({ fontStyle }) =>
-    fontStyle === 'Poppins-SemiBold' &&
+  ${({ fontFace }) =>
+    fontFace === 'Poppins-SemiBold' &&
     `
       font-family: ${theme.fonts.semiBold}
     `};
-
-  ${({ fontStyle }) =>
-    fontStyle === 'Poppins-Medium' &&
+  ${({ fontFace }) =>
+    fontFace === 'Poppins-Medium' &&
     `
       font-family: ${theme.fonts.medium}
     `};
-
-  ${({ fontStyle }) =>
-    fontStyle === 'Poppins-Bold' &&
+  ${({ fontFace }) =>
+    fontFace === 'Poppins-Bold' &&
     `
       font-family: ${theme.fonts.bold}
     `};
-  font-size: ${({ fontSize }) => String(fontSize)}px;
-  font-style: ${({ fontStyle }) => fontStyle};
-  color: ${({ color }) => color};
-  text-align: ${({ textAlign }) => textAlign};
-
   ${({ uppercase }) =>
     uppercase &&
     `

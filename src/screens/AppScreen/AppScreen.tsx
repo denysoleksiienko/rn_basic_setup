@@ -23,8 +23,8 @@ const AppScreen: FC<{ style?: ViewStyle }> = ({ style }) => (
     <View>
       <Typo
         color={theme.colors.green}
+        fontFace='Poppins-Bold'
         fontSize={20}
-        fontStyle='Poppins-Bold'
         textAlign='center'
         uppercase
       >
