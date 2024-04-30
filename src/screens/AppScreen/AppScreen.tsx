@@ -1,57 +1,30 @@
-import { FC } from 'react';
+import React, { FC, useId } from 'react';
 
-import { ScrollView, StyleSheet, Text, View, ViewStyle } from 'react-native';
-import {
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import { Button, View } from 'react-native';
 
-import Section from '@/components/Section';
-import { ChevronDownIcon } from '@/components/icons';
-import Typo from '@/components/ui/Typo';
-import theme from '@/theme';
+import Input from '@/components/ui/Input';
+import { KeyboardAwareScrollViewContainer } from '@/components/ui/containers';
 
-const AppScreen: FC<{ style?: ViewStyle }> = ({ style }) => (
-  <ScrollView contentInsetAdjustmentBehavior='automatic' style={style}>
-    <Header />
+const AppScreen: FC = () => {
+  const uid = useId();
 
-    <View style={{ alignItems: 'center' }}>
-      <ChevronDownIcon />
-    </View>
-    <View>
-      <Typo
-        color={theme.colors.green}
-        fontFace='Poppins-Bold'
-        fontSize={20}
-        textAlign='center'
-        uppercase
-      >
-        Setup RN 24
-      </Typo>
-      <Section title='Step One'>
-        Edit <Text style={styles.highlight}>App.tsx</Text> to change this screen
-        and then come back to see your edits.
-      </Section>
-      <Section title='See Your Changes'>
-        <ReloadInstructions />
-      </Section>
-      <Section title='Debug'>
-        <DebugInstructions />
-      </Section>
-      <Section title='Learn More'>
-        Read the docs to discover what to do next:
-      </Section>
-      <LearnMoreLinks />
-    </View>
-  </ScrollView>
-);
+  return (
+    <KeyboardAwareScrollViewContainer>
+      <View>
+        {new Array(10).fill(0).map((_, i) => (
+          <Input
+            // eslint-disable-next-line react/no-array-index-key
+            key={`${uid}-${i}`}
+            keyboardType={i % 2 === 0 ? 'numeric' : 'default'}
+            label='App'
+            placeholder={`TextInput#${i}`}
+            variant='outlined'
+          />
+        ))}
+      </View>
+      <Button title='33' />
+    </KeyboardAwareScrollViewContainer>
+  );
+};
 
 export default AppScreen;
-
-const styles = StyleSheet.create({
-  highlight: {
-    fontFamily: theme.fonts.bold,
-  },
-});

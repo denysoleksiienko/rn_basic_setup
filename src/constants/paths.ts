@@ -1,7 +1,7 @@
 export enum PATHS {
-  ONBORDING = 'Onbording',
-  APP_DRAWER = 'App Drawer',
-  TAB_NAVIGATOR = 'Tab Navigator',
-  DASHBOARD_TAB = 'Dashboard Tab',
-  ABOUT_TAB = 'About Tab',
+  ONBORDING = 'ONBORDING',
+  APP_DRAWER = 'APP_DRAWER',
+  TAB_NAVIGATOR = 'TAB_NAVIGATOR',
+  DASHBOARD_TAB = 'DASHBOARD_TAB',
+  ABOUT_TAB = 'ABOUT_TAB',
 }
