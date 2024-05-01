@@ -5,9 +5,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { PATHS } from '@/constants/paths';
 import { useAuth } from '@/context/AuthProvider';
-import Onbording from '@/screens/Onbording';
 
 import DrawerMenu from '../DrawerMenu';
+import PublicNavigation from '../PublicNavigation';
 
 const Stack = createStackNavigator();
 
@@ -16,11 +16,11 @@ const MainRouter: FC = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{ gestureEnabled: true }}>
         {!isLogged ? (
           <Stack.Screen
-            component={Onbording}
-            name={PATHS.ONBORDING}
+            component={PublicNavigation}
+            name={PATHS.PUBLICK_NAVIGATION}
             options={{ headerShown: false }}
           />
         ) : (

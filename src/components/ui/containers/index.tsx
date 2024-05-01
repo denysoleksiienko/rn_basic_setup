@@ -13,17 +13,15 @@ import {
   AwareScrollView,
   AwareScrollViewProps,
 } from '@/components/keyboard-controllers';
-import theme, { MyTheme } from '@/theme';
+import theme, { ColorName } from '@/theme';
 import { moderateScale } from '@/utils';
 
 import * as styled from './styled';
 
-type Colors = keyof MyTheme['colors'];
-
 type SafeAreaViewProps = {
   safeTop?: boolean;
   safeBottom?: boolean;
-  backgroundColor?: Colors;
+  backgroundColor?: ColorName;
 };
 
 type SafeAreaKeyboardAvoidingViewProps = SafeAreaViewProps &
