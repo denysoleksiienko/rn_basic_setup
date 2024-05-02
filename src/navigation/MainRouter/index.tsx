@@ -5,11 +5,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { PATHS } from '@/constants/paths';
 import { useAuth } from '@/context/AuthProvider';
+import { Chat } from '@/screens';
 
 import DrawerMenu from '../DrawerMenu';
 import PublicNavigation from '../PublicNavigation';
+import { MainStackParamList } from '../navigationParams';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<MainStackParamList>();
 
 const MainRouter: FC = () => {
   const { isLogged } = useAuth();
@@ -24,11 +26,14 @@ const MainRouter: FC = () => {
             options={{ headerShown: false }}
           />
         ) : (
-          <Stack.Screen
-            component={DrawerMenu}
-            name={PATHS.APP_DRAWER}
-            options={{ headerShown: false }}
-          />
+          <>
+            <Stack.Screen
+              component={DrawerMenu}
+              name={PATHS.APP_DRAWER}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen component={Chat} name={PATHS.CHAT} />
+          </>
         )}
       </Stack.Navigator>
     </NavigationContainer>

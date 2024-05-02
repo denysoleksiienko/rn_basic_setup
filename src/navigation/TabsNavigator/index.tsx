@@ -3,15 +3,17 @@ import React, { FC } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { PATHS } from '@/constants/paths';
-import AboutScreen from '@/screens/AboutScreen';
-import AppScreen from '@/screens/AppScreen/AppScreen';
+import { ChatTabScreen, AppTabScreen, AboutTabScreen } from '@/screens';
 
-const Tabs = createBottomTabNavigator();
+import { TabsStackParamList } from '../navigationParams';
+
+const Tabs = createBottomTabNavigator<TabsStackParamList>();
 
 const TabsNavigator: FC = () => (
   <Tabs.Navigator initialRouteName={PATHS.DASHBOARD_TAB}>
-    <Tabs.Screen component={AppScreen} name={PATHS.DASHBOARD_TAB} />
-    <Tabs.Screen component={AboutScreen} name={PATHS.ABOUT_TAB} />
+    <Tabs.Screen component={AppTabScreen} name={PATHS.DASHBOARD_TAB} />
+    <Tabs.Screen component={AboutTabScreen} name={PATHS.ABOUT_TAB} />
+    <Tabs.Screen component={ChatTabScreen} name={PATHS.CHAT_TAB} />
   </Tabs.Navigator>
 );
 

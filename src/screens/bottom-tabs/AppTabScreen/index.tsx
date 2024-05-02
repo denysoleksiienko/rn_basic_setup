@@ -1,11 +1,11 @@
-import React, { FC, useId } from 'react';
+import { FC, useId } from 'react';
 
 import { Button, View } from 'react-native';
 
 import Input from '@/components/ui/Input';
 import { KeyboardAwareScrollViewContainer } from '@/components/ui/containers';
 
-const AppScreen: FC = () => {
+const AppTabScreen: FC = () => {
   const uid = useId();
 
   return (
@@ -27,4 +27,4 @@ const AppScreen: FC = () => {
   );
 };
 
-export default AppScreen;
+export default AppTabScreen;

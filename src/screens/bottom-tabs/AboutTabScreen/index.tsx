@@ -11,7 +11,7 @@ import {
 import Input from '@/components/ui/Input';
 import { KeyboardAvoidingViewContainer } from '@/components/ui/containers';
 
-const AboutScreen: FC = () => (
+const AboutTabScreen: FC = () => (
   <KeyboardAvoidingViewContainer backgroundColor='lightBlue'>
     <View style={styles.inner}>
       <Text style={styles.heading}>Header</Text>
@@ -30,7 +30,7 @@ const AboutScreen: FC = () => (
   </KeyboardAvoidingViewContainer>
 );
 
-export default AboutScreen;
+export default AboutTabScreen;
 
 const styles = StyleSheet.create({
   header: {
