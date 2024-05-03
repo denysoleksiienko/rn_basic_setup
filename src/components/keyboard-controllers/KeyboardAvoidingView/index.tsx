@@ -42,7 +42,7 @@ export const KeyboardAvoidingView: FC<KeyboardAvoidingViewProps> = ({
   isPackageImplementation = 'Package',
   behavior = 'height',
   contentContainerStyle,
-  keyboardVerticalOffset = 100,
+  keyboardVerticalOffset = 0,
   style,
   ...props
 }) => {

@@ -13,8 +13,8 @@ import { KeyboardAvoidingViewContainer } from '@/components/ui/containers';
 
 const AboutTabScreen: FC = () => (
   <KeyboardAvoidingViewContainer backgroundColor='lightBlue'>
+    <Text style={styles.heading}>Header</Text>
     <View style={styles.inner}>
-      <Text style={styles.heading}>Header</Text>
       <View>
         <Input
           placeholder='Username'
