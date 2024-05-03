@@ -18,6 +18,7 @@
 		7BBB77BBB935468BBB942828 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CAA2D98F774147A088655488 /* Poppins-Bold.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8AD62BB616244532BB65D18C /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BC3189C74EA454CB5C3D56E /* Poppins-SemiBold.ttf */; };
+		C95930A7D1E2499CB994AD77 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F90E0544F9794C1B90783A1F /* BootSplash.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		98FE0CA37768452D86FD0BF7 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../src/assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		CAA2D98F774147A088655488 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../src/assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F90E0544F9794C1B90783A1F /* BootSplash.storyboard */ = {isa = PBXFileReference; name = "BootSplash.storyboard"; path = "rn_basic_setup/BootSplash.storyboard"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				F90E0544F9794C1B90783A1F /* BootSplash.storyboard */,
 			);
 			name = rn_basic_setup;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				6CB3AA82647C431585619B3E /* Poppins-Medium.ttf in Resources */,
 				397F582381104AB88D5CCC7B /* Poppins-Regular.ttf in Resources */,
 				8AD62BB616244532BB65D18C /* Poppins-SemiBold.ttf in Resources */,
+				C95930A7D1E2499CB994AD77 /* BootSplash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
