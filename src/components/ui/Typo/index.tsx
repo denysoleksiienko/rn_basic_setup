@@ -1,10 +1,7 @@
 import { FC } from 'react';
-import type { PropsWithChildren } from 'react';
 
 import styled from '@emotion/native';
 import { TextProps, TextStyle } from 'react-native';
-
-import theme from '@/theme';
 
 type TextAlign = 'auto' | 'left' | 'right' | 'center' | 'justify';
 
@@ -24,51 +21,26 @@ interface ITypo extends TextProps {
   style?: TextStyle;
 }
 
-const Typo: FC<PropsWithChildren<ITypo>> = ({
-  children,
-  color = '#000',
-  fontSize = 15,
-  letterSpacing = 0,
-  textAlign = 'left',
-  uppercase = false,
-  fontFace = 'Poppins-Regular',
-  ...props
-}) => (
-  <StyledText
-    color={color}
-    fontFace={fontFace}
-    fontSize={fontSize}
-    letterSpacing={letterSpacing}
-    textAlign={textAlign}
-    uppercase={uppercase}
-    {...props}
-  >
-    {children}
-  </StyledText>
-);
-
-export default Typo;
-
-const StyledText = styled.Text<ITypo>`
+const Typo: FC<ITypo> = styled.Text`
   font-size: ${({ fontSize }) => String(fontSize)}px;
-  color: ${({ color }) => color};
+  color: ${({ color, theme }) => color || theme.colors.black};
   text-align: ${({ textAlign }) => textAlign};
-  ${({ fontFace }) =>
+  ${({ fontFace, theme }) =>
     fontFace === 'Poppins-Regular' &&
     `
       font-family: ${theme.fonts.base}
     `};
-  ${({ fontFace }) =>
+  ${({ fontFace, theme }) =>
     fontFace === 'Poppins-SemiBold' &&
     `
       font-family: ${theme.fonts.semiBold}
     `};
-  ${({ fontFace }) =>
+  ${({ fontFace, theme }) =>
     fontFace === 'Poppins-Medium' &&
     `
       font-family: ${theme.fonts.medium}
     `};
-  ${({ fontFace }) =>
+  ${({ fontFace, theme }) =>
     fontFace === 'Poppins-Bold' &&
     `
       font-family: ${theme.fonts.bold}
@@ -85,3 +57,11 @@ const StyledText = styled.Text<ITypo>`
       letter-spacing: ${Number(letterSpacing)}px;
     `};
 `;
+
+Typo.defaultProps = {
+  fontSize: 16,
+  fontFace: 'Poppins-Regular',
+  textAlign: 'left',
+};
+
+export default Typo;

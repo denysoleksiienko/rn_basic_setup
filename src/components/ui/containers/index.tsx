@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import type { PropsWithChildren } from 'react';
 
-import { ImageBackgroundProps, View } from 'react-native';
+import { ImageBackground, ImageBackgroundProps, View } from 'react-native';
 import {
   Edge,
   SafeAreaView as DefaultSafeAreaView,
@@ -15,8 +15,6 @@ import {
 } from '@/components/keyboard-controllers';
 import theme, { ColorName } from '@/theme';
 import { moderateScale } from '@/utils';
-
-import * as styled from './styled';
 
 type SafeAreaViewProps = {
   safeTop?: boolean;
@@ -138,11 +136,11 @@ export const KeyboardAwareScrollViewContainer: FC<
 export const ImageBackgroundContainer: FC<
   PropsWithChildren<SafeAreaImageBackgroundViewProps>
 > = ({ children, safeTop, safeBottom, imageBackgroundProps, ...props }) => (
-  <styled.ContainerWithImageBackground {...imageBackgroundProps}>
+  <ImageBackground style={{ flex: 1 }} {...imageBackgroundProps}>
     <KeyboardAvoidingView {...props}>
       <SafeAreaView safeBottom={safeBottom} safeTop={safeTop}>
         {children}
       </SafeAreaView>
     </KeyboardAvoidingView>
-  </styled.ContainerWithImageBackground>
+  </ImageBackground>
 );
