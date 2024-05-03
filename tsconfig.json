@@ -82,6 +82,5 @@
     "./src/**/*.json",
     "./src/**/*.json5",
     "./test/**/*.ts",
-    "./src/types/custom.d.ts"
   ]
 }

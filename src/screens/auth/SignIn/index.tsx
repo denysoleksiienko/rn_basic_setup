@@ -4,6 +4,7 @@ import { useTheme } from '@emotion/react';
 import { StackScreenProps } from '@react-navigation/stack';
 import { useForm, Controller } from 'react-hook-form';
 import { View } from 'react-native';
+import Config from 'react-native-config';
 
 import Input from '@/components/ui/Input';
 import { Column } from '@/components/ui/Layout';
@@ -82,6 +83,10 @@ const SignIn: FC<Props> = ({ navigation }) => {
           <TextLink onPress={() => navigation.navigate(PATHS.SIGN_UP)}>
             REGISTER
           </TextLink>
+
+          <Typo color={theme.colors.purple} textAlign='center'>
+            {Config.ENV}
+          </Typo>
         </View>
         <Column>
           <styled.TouchableButton disabled={!isValid} onPress={onSubmit}>
