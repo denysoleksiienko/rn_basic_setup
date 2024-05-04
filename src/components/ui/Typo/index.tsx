@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import type { PropsWithChildren } from 'react';
 
 import styled from '@emotion/native';
 import { TextProps, TextStyle } from 'react-native';
@@ -21,7 +22,32 @@ interface ITypo extends TextProps {
   style?: TextStyle;
 }
 
-const Typo: FC<ITypo> = styled.Text`
+const Typo: FC<PropsWithChildren<ITypo>> = ({
+  children,
+  color = '#000',
+  fontSize = 15,
+  letterSpacing = 0,
+  textAlign = 'left',
+  uppercase = false,
+  fontFace = 'Poppins-Regular',
+  ...props
+}) => (
+  <StyledText
+    color={color}
+    fontFace={fontFace}
+    fontSize={fontSize}
+    letterSpacing={letterSpacing}
+    textAlign={textAlign}
+    uppercase={uppercase}
+    {...props}
+  >
+    {children}
+  </StyledText>
+);
+
+export default Typo;
+
+const StyledText = styled.Text<ITypo>`
   font-size: ${({ fontSize }) => String(fontSize)}px;
   color: ${({ color, theme }) => color || theme.colors.black};
   text-align: ${({ textAlign }) => textAlign};
@@ -57,11 +83,3 @@ const Typo: FC<ITypo> = styled.Text`
       letter-spacing: ${Number(letterSpacing)}px;
     `};
 `;
-
-Typo.defaultProps = {
-  fontSize: 16,
-  fontFace: 'Poppins-Regular',
-  textAlign: 'left',
-};
-
-export default Typo;
