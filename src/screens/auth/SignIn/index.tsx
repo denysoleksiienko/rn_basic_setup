@@ -90,7 +90,7 @@ const SignIn: FC<Props> = ({ navigation }) => {
         </View>
         <Column>
           <styled.TouchableButton disabled={!isValid} onPress={onSubmit}>
-            <Typo color={theme.colors.white} uppercase>
+            <Typo color={theme.colors.white}>
               Submit
             </Typo>
           </styled.TouchableButton>

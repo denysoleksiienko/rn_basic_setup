@@ -4,41 +4,41 @@ import type { PropsWithChildren } from 'react';
 import styled from '@emotion/native';
 import { TextProps, TextStyle } from 'react-native';
 
-type TextAlign = 'auto' | 'left' | 'right' | 'center' | 'justify';
-
 type FontFace =
   | 'Poppins-Bold'
   | 'Poppins-Medium'
   | 'Poppins-Regular'
   | 'Poppins-SemiBold';
 
-interface ITypo extends TextProps {
-  color?: string;
-  fontSize?: number | string;
+interface ITypo {
   fontFace?: FontFace;
-  letterSpacing?: number;
-  textAlign?: TextAlign;
-  uppercase?: boolean;
-  style?: TextStyle;
+  color?: string;
+  fontSize?: TextStyle['fontSize'];
+  letterSpacing?: TextStyle['letterSpacing'];
+  textAlign?: TextStyle['textAlign'];
+  textTransform?: TextStyle['textTransform'];
+  fontWeight?: TextStyle['fontWeight'];
 }
 
-const Typo: FC<PropsWithChildren<ITypo>> = ({
+const Typo: FC<PropsWithChildren<TextProps & ITypo>> = ({
   children,
   color = '#000',
   fontSize = 15,
   letterSpacing = 0,
   textAlign = 'left',
-  uppercase = false,
+  textTransform = 'none',
   fontFace = 'Poppins-Regular',
+  fontWeight = 'normal',
   ...props
 }) => (
   <StyledText
     color={color}
     fontFace={fontFace}
     fontSize={fontSize}
+    fontWeight={fontWeight}
     letterSpacing={letterSpacing}
     textAlign={textAlign}
-    uppercase={uppercase}
+    textTransform={textTransform}
     {...props}
   >
     {children}
@@ -51,35 +51,32 @@ const StyledText = styled.Text<ITypo>`
   font-size: ${({ fontSize }) => String(fontSize)}px;
   color: ${({ color, theme }) => color || theme.colors.black};
   text-align: ${({ textAlign }) => textAlign};
-  ${({ fontFace, theme }) =>
-    fontFace === 'Poppins-Regular' &&
+
+  font-weight: ${({ fontWeight }) => fontWeight};
+
+  ${({ fontFace, theme }) => {
+    switch (fontFace) {
+      case 'Poppins-Regular':
+        return `font-family: ${theme.fonts.base};`;
+      case 'Poppins-SemiBold':
+        return `font-family: ${theme.fonts.semiBold};`;
+      case 'Poppins-Medium':
+        return `font-family: ${theme.fonts.medium};`;
+      case 'Poppins-Bold':
+        return `font-family: ${theme.fonts.bold};`;
+      default:
+        return `font-family: ${theme.fonts.base};`;
+    }
+  }};
+  ${({ textTransform }) =>
+    textTransform &&
     `
-      font-family: ${theme.fonts.base}
-    `};
-  ${({ fontFace, theme }) =>
-    fontFace === 'Poppins-SemiBold' &&
-    `
-      font-family: ${theme.fonts.semiBold}
-    `};
-  ${({ fontFace, theme }) =>
-    fontFace === 'Poppins-Medium' &&
-    `
-      font-family: ${theme.fonts.medium}
-    `};
-  ${({ fontFace, theme }) =>
-    fontFace === 'Poppins-Bold' &&
-    `
-      font-family: ${theme.fonts.bold}
-    `};
-  ${({ uppercase }) =>
-    uppercase &&
-    `
-      text-transform: uppercase
+      text-transform: ${textTransform}
     `};
 
   ${({ letterSpacing }) =>
     letterSpacing &&
     `
-      letter-spacing: ${Number(letterSpacing)}px;
+      letter-spacing: ${letterSpacing}px;
     `};
 `;
