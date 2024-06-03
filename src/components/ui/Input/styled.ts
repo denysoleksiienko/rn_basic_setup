@@ -27,6 +27,7 @@ export const TextInput = styled.TextInput<{ variant: Variant }>`
   color: ${({ theme }) => theme.colors.black};
   min-height: 46px;
   justify-content: center;
+  align-items: center;
 
   /* border */
   ${({ variant, theme }) =>

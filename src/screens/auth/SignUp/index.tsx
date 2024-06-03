@@ -49,36 +49,38 @@ const SignIn: FC<Props> = ({ navigation }) => {
       />
       <styled.FormContainer>
         <View>
-          <Controller
-            control={control}
-            name='email'
-            render={({ field: { onChange, value } }) => (
-              <Input
-                keyboardType='email-address'
-                onChangeText={onChange}
-                placeholder='Username'
-                style={{ marginBottom: 16 }}
-                value={value}
-                variant='outlined'
-              />
-            )}
-            rules={{ required: 'Email is required' }}
-          />
-          <Controller
-            control={control}
-            name='password'
-            render={({ field: { onChange, value } }) => (
-              <Input
-                onChangeText={onChange}
-                placeholder='Password'
-                secureTextEntry
-                style={{ marginBottom: 16 }}
-                value={value}
-                variant='outlined'
-              />
-            )}
-            rules={{ required: 'Password is required' }}
-          />
+          <View style={{ marginBottom: 16 }}>
+            <Controller
+              control={control}
+              name='email'
+              render={({ field: { onChange, value } }) => (
+                <Input
+                  keyboardType='email-address'
+                  onChangeText={onChange}
+                  placeholder='Username'
+                  value={value}
+                  variant='outlined'
+                />
+              )}
+              rules={{ required: 'Email is required' }}
+            />
+          </View>
+          <View style={{ marginBottom: 16 }}>
+            <Controller
+              control={control}
+              name='password'
+              render={({ field: { onChange, value } }) => (
+                <Input
+                  onChangeText={onChange}
+                  placeholder='Password'
+                  secureTextEntry
+                  value={value}
+                  variant='outlined'
+                />
+              )}
+              rules={{ required: 'Password is required' }}
+            />
+          </View>
           <TextLink onPress={() => navigation.navigate(PATHS.SIGN_IN)}>
             LOGIN
           </TextLink>

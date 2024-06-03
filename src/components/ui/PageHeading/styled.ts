@@ -7,7 +7,7 @@ import Typo from '../Typo';
 
 export const Container = styled.View<{ marginBottom?: number }>`
   margin-bottom: ${({ marginBottom }) =>
-    marginBottom ? verticalScale(marginBottom) : 0}px;
+    marginBottom ? String(verticalScale(marginBottom)) : 0}px;
 `;
 
 export const TextContainer = styled.View`
@@ -20,7 +20,7 @@ const Text = styled(Typo)`
   color: ${theme.colors.black};
   font-size: ${String(moderateScale(35))}px;
   line-height: ${String(verticalScale(54))}px;
-  letter-spacing: -${(5 * 16) / 100}px;
+  letter-spacing: -${String((5 * 16) / 100)}px;
   padding-right: 6px;
 `;
 
@@ -51,11 +51,11 @@ export const Italic = styled(Text)<{
   ${({ fontSize }) =>
     fontSize &&
     `
-    font-size: ${moderateScale(Number(fontSize))}px;
+    font-size: ${moderateScale(fontSize)}px;
   `}
   ${({ lineHeigh }) =>
     lineHeigh &&
     `
-    line-height: ${verticalScale(Number(lineHeigh))}px;
+    line-height: ${verticalScale(lineHeigh)}px;
   `}
 `;
